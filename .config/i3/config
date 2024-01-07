@@ -26,9 +26,9 @@ exec --no-startup-id dex --autostart --environment i3
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# xss-lock grabs a logind suspend inhibit lock and will use light-dm to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- dm-tool lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -52,6 +52,7 @@ floating_modifier $mod
 tiling_drag modifier titlebar
 
 set $terminal kitty
+bindsym F9 exec dm-tool lock
 
 # start a terminal
 bindsym $mod+Return exec $terminal
@@ -190,9 +191,9 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+#bar {
+#        status_command i3status
+#}
 
 ## Theme -> MacOS inspired
 # class                 border  backgr. text    indicator child_border
@@ -200,6 +201,12 @@ client.focused          #4d4d4d #5e5e5e #f2f2f2 #484848   #5e5e5e
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.focused_inactive #1a1a1a #111111 #888888 #292d2e   #222222
 client.urgent           #900000 #900000 #ffffff #900000   #900000
+
+## GAPS
+gaps inner 10
+
+## Remove titlebar in tiling (looks disgusting)
+# default_border pixel 0
 
 ## Autostart setup
 exec_always ~/.config/i3/autostart.sh
