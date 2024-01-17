@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Restore the previous wallpaper settings
-nitrogen --restore
+feh --bg-scale ~/Pictures/Wallpapers/9d71fdf6ee231.png
 picom -b --config ~/.config/picom/picom.conf
 
 # Terminate already running bar instances

@@ -5,7 +5,7 @@
 * Introduction
 
 This repository aims to serve as the dotfiles for the current system being run and administered by tanishqdaiya. Naturally, that means that these dotfiles are opinionated to tanishqdaiya's tastes and does not aim to serve everyone. However, this might be a good reference or inspiration for someone who is learning to implement or steal some parts of the configuration. This configuration is also made from stealing from many different configurations to reach my own.
-
+n
 * Describing the system
 
 Here, I assume the system to be a personal workstation, aimed at programming and general entertainment. It serves a personal computer with the main objective of developing software and entertain its user.
@@ -81,7 +81,7 @@ Check the table at [[https://wiki.archlinux.org/title/Xorg][Arch Linux wiki]] to
 *Requirements*
 
 #+BEGIN_SRC bash
-  pacman -S xorg xorg-server git base-devel networkmanager xclip unzip i3-wm lightdm lightdm-gtk-greeter nitrogen qt6ct lxappearance flameshot
+  pacman -S xorg xorg-server git base-devel networkmanager xclip unzip i3-wm lightdm lightdm-gtk-greeter feh qt6ct lxappearance flameshot
 #+END_SRC
 
 *Brightness setup in i3*

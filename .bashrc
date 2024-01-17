@@ -10,7 +10,6 @@ alias grep='grep --color=auto'
 alias mkdir='mkdir -p'
 alias ..='cd ..'
 alias c='clear'
-alias set_backlight="sudo chmod a+rw /sys/class/backlight/intel_backlight/brightness"
 
 # Shell prompt
 PS1='[\u@\h \W]\$ '
@@ -23,3 +22,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Created by `pipx` on 2023-12-27 08:23:22
 export PATH="$PATH:/home/tanishqdaiya/.local/bin"
+
+# Do something about it so that you don't have to do it everytime, but it works for a quick fix, for now.
+alias set_backlight="sudo chmod a+rw /sys/class/backlight/intel_backlight/brightness"
