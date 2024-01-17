@@ -1,5 +1,6 @@
 #+TITLE: README
 #+AUTHOR: Tanishq Daiya
+#+OPTIONS: toc:2
 
 * Introduction
 
@@ -101,8 +102,10 @@ Check the table at [[https://wiki.archlinux.org/title/Xorg][Arch Linux wiki]] to
 
 * Appearance
 
-** [[https://imgur.com/a/09sfpQ1][Wallpaper -> MacOS]]
-** [[https://github.com/vinceliuice/Colloid-gtk-theme][GTK and Icons -> Colloid Theme]]
+The color theme of the system and the wallpapers are inspired by Apple's Macintosh system.
+
++ [[https://imgur.com/a/09sfpQ1][Wallpaper -> MacOS]]
++ [[https://github.com/vinceliuice/Colloid-gtk-theme][GTK and Icons -> Colloid Theme]]
 
 * Additions/Improvements to make
 
