@@ -1,3 +1,115 @@
 #+TITLE: README
 #+AUTHOR: Tanishq Daiya
 
+* Introduction
+
+This repository aims to serve as the dotfiles for the current system being run and administered by tanishqdaiya. Naturally, that means that these dotfiles are opinionated to tanishqdaiya's tastes and does not aim to serve everyone. However, this might be a good reference or inspiration for someone who is learning to implement or steal some parts of the configuration. This configuration is also made from stealing from many different configurations to reach my own.
+
+* Describing the system
+
+Here, I assume the system to be a personal workstation, aimed at programming and general entertainment. It serves a personal computer with the main objective of developing software and entertain its user.
+
+** Operating System
+
+The current operating system being run is *Arch Linux*, however, these configurations are universal for the softwares used and does not require anything special. For example, Emacs on Windows will work similar to the one on any distribution of Linux -- only limited by the scope of the application itself and not its configuration.
+
+** Directory Structure
+
+This is a general suggestion and one can follow something completely different and still be fine with it. This setup works best for a Unix-like system. Here is a basic structure of the custom folders we are going to create for the user:
+
+#+BEGIN_SRC text
+  /home/tanishqdaiya
+    Applications -> For manually installed applications, not managed by a package manager
+    Desktop      
+    Downloads
+    Movies	     -> Alternative name used to refer to "Videos" folder
+    Music
+    Pictures
+#+END_SRC
+
+Here are the commands to create all the above directories in the home folder:
+
+#+BEGIN_SRC bash
+  mkdir -p ~/Applications ~/Desktop ~/Downloads ~/Movies ~/Music ~/Pictures
+#+END_SRC
+
+*NOTE* that the creation of other required directories for running the configuration will be created by GNU Stow.
+
+** GNU Stow
+
+The configuration files can be put to their respective location by [[https://www.gnu.org/software/stow/][GNU Stow]], which will create a soft symlink from the repository folder to the respective file locations.
+
+The repository root directory itself represents where the configuration files must be stored in the home directory. If you wish to move your configuration files without using symlinks, then you are welcome to do that manually.
+
+To install GNU Stow on Arch Linux:
+
+#+BEGIN_SRC bash
+  pacman -S stow
+#+END_SRC
+
+To install the configuration:
+
+#+BEGIN_SRC bash
+  stow .
+#+END_SRC
+
+It is recommended to check the documentation for Stow to achieve desired results. In future, I aim to write a script for automating everything.
+
+* Dependency Installation
+
+Here, I aim to install all the required dependencies, related or unrelated to the configuration. This works to simpilify the installation process for the user. These packages aim to aid the system for proper functioning. Check all the files manually if you want full control over what you install.
+
+** Arch Linux
+
+*Graphics Drivers*
+
+Check the table at [[https://wiki.archlinux.org/title/Xorg][Arch Linux wiki]] to install the required drivers. For my case:
+
+#+BEGIN_SRC bash
+  pacman -S xf86-video-intel
+#+END_SRC
+
+*Setup yay*
+
+#+BEGIN_SRC bash
+  git clone https://aur.archlinux.org/yay-git
+  cd yay-git
+  makepkg -si
+#+END_SRC
+
+*Requirements*
+
+#+BEGIN_SRC bash
+  pacman -S xorg xorg-server git base-devel networkmanager xclip unzip i3-wm lightdm lightdm-gtk-greeter nitrogen qt6ct lxappearance flameshot
+#+END_SRC
+
+*Brightness setup in i3*
+
+#+BEGIN_SRC bash
+  yay -S acpilight
+  chmod a+rw /sys/class/backlight/intel_backlight/brightness ## to fix the permission issues
+#+END_SRC
+
+#+BEGIN_SRC bash
+    systemctl enable lightdm
+#+END_SRC
+
+*Extra*
+#+BEGIN_SRC bash
+  pacman -S neovim emacs-nativecomp clang
+#+END_SRC
+
+* Appearance
+
+** [[https://imgur.com/a/09sfpQ1][Wallpaper -> MacOS]]
+** [[https://github.com/vinceliuice/Colloid-gtk-theme][GTK and Icons -> Colloid Theme]]
+
+* Additions/Improvements to make
+
+** TODO add: Table of Contents
+** TODO add: Principles
+
+* License
+
+Released under the [[./LICENSE][MIT License]] unless otherwise specified by license files in subfolders.
+
